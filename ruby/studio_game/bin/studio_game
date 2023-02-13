@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require_relative("../lib/studio_game/game")
+require_relative("../lib/studio_game/player")
+require_relative("../lib/studio_game/clumsy_player")
+require_relative("../lib/studio_game/berserk_player")
+
+knuckleheads = StudioGame::Game.new("Knuckleheads")
+
+default_player_file = File.join(File.dirname(__FILE__), 'players.csv')
+knuckleheads.load_players(ARGV.shift || default_player_file)
+
+knuckleheads.add_player(StudioGame::ClumsyPlayer.new("klutz", 105))
+knuckleheads.add_player(StudioGame::BerserkPlayer.new("berserker", 50))
+
+
+loop do
+  puts "\nHow many rounds? ('quit' to exit)"
+  answer = gets.chomp.downcase
+
+  case answer
+  when "quit", "exit"
+    break
+  when /^\d+$/
+    knuckleheads.play(answer.to_i)
+    knuckleheads.print_stats
+  else
+    puts "Please enter a number of 'quit'"
+  end
+end
+
+knuckleheads.save_high_scores
