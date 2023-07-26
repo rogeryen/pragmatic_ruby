@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flix</title>
+    <title>Flixs</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Flix</h1>
+    </header>
+    <div class="content">
+      <%= yield %>
+    </div>
+    <footer>
+      <p>Copyright &copy; <%= Time.now.year %></p>
+      <%= link_to "My website", "https://test.com" %>
+    </footer>
   </body>
 </html>
