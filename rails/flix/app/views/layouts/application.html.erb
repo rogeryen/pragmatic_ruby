@@ -11,15 +11,10 @@
   </head>
 
   <body>
-    <header>
-      <%= link_to image_tag("logo.png"), root_path %>
-    </header>
+    <%= render "layouts/header" %>
     <div class="content">
       <%= yield %>
     </div>
-    <footer>
-      <p>Copyright &copy; <%= Time.now.year %></p>
-      <%= link_to "My website", "https://test.com" %>
-    </footer>
+    <%= render "layouts/footer" %>
   </body>
 </html>

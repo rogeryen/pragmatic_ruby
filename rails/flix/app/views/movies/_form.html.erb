@@ -1,0 +1,18 @@
+<%= form_with(model: movie) do |f| %>
+  <%= f.label :title, "Title", autofocus: true %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description, rows: 7 %>
+
+  <%= f.label :rating, "Rating" %>
+  <%= f.text_field :rating %>
+
+  <%= f.label :released_on, "Released on" %>
+  <%= f.date_field :released_on %>
+
+  <%= f.label :total_gross, "Total gross" %>
+  <%= f.number_field :total_gross %>
+
+  <%= f.submit %>
+<% end %>
