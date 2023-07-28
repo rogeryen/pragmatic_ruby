@@ -1,0 +1,15 @@
+<%= form_with(model: [movie, review]) do |f| %>
+  <%= render "shared/errors", object: review %>
+
+
+  <%= f.label :name, "Name", autofocus: true %>
+  <%= f.text_field :name %>
+
+  <%= f.label :stars, "Stars" %>
+  <%= f.select :stars, Review::STARS, prompt: "Pick one" %>
+
+  <%= f.label :comment, "Comment" %>
+  <%= f.text_area :comment, placeholder: "Enter your comment" %>
+
+  <%= f.submit "Post Review" %>
+<% end %>
