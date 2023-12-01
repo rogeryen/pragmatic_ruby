@@ -20,4 +20,8 @@ class Movie < ApplicationRecord
   def self.released
     Movie.where("released_on < ?", Time.now.utc).order(released_on: :desc)
   end
+
+  def average_stars
+    self.reviews.average(:stars) || 0.0
+  end
 end
